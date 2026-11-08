@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garimpo · Radar de produtos para afiliados</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f4f5f9;--card:#fff;--tx:#0f172a;--mut:#64748b;--bd:#e2e6ef;--ac:#f97316;--ac2:#fb923c;--soft:#fff1e6;--hero1:#0b1220;--hero2:#1e2a4a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f1c;--card:#131b2e;--tx:#eef2fb;--mut:#93a0bb;--bd:#222d47;--soft:#2a1d14}}
+:root[data-theme="dark"]{--bg:#0a0f1c;--card:#131b2e;--tx:#eef2fb;--mut:#93a0bb;--bd:#222d47;--soft:#2a1d14}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:26px 18px 30px}
+.wrap{max-width:780px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.3px}
+.hero h1{margin:22px 0 8px;font-size:30px;line-height:1.12;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:var(--ac2)}
+.hero p{margin:0;color:#c3cde4;font-size:15px;line-height:1.5}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.stats span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:6px 12px;font-size:13px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--bd)}
+.bar .wrap{padding:10px 18px 8px}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:3px;margin-bottom:8px}
+.seg button{border:0;background:none;color:var(--mut);padding:6px 12px;border-radius:8px;font-size:13px}
+.seg button.on{background:var(--ac);color:#fff;font-weight:700}
+.seg button:disabled{opacity:.55}
+input{width:100%;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:10px 12px;font-size:15px;margin-bottom:8px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chips button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:7px 13px;border-radius:99px;font-size:13px}
+.chips button.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+main{padding:16px 18px 10px}
+.pod{display:grid;gap:12px;margin-bottom:12px}
+.fc{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;overflow:hidden}
+.fc:before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.fc .top{display:flex;gap:14px;align-items:center}
+.em{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:var(--soft);font-size:30px}
+.rk{font-size:12px;color:var(--ac);font-weight:800;letter-spacing:.6px}
+h3{margin:2px 0 0;font-size:17px;line-height:1.25}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 8px;font-size:13px;color:var(--mut)}
+.pill{background:var(--soft);color:var(--ac);border-radius:6px;padding:2px 8px;font-weight:600}
+.mt{display:inline-flex;gap:3px;vertical-align:middle}
+.mt i{width:14px;height:6px;border-radius:3px;background:var(--bd)}
+.mt i.a{background:var(--ac)}
+.why{font-size:14px;margin:0 0 4px}
+.tip{font-size:13px;color:var(--mut);margin:0 0 12px}
+.go{display:block;text-align:center;background:var(--ac);color:#fff;text-decoration:none;padding:11px;border-radius:12px;font-weight:700;font-size:14px}
+.row{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px}
+.row .em{width:46px;height:46px;font-size:24px;border-radius:12px}
+.row .in{flex:1;min-width:0}
+.row h3{font-size:15px}
+.row .meta{margin:6px 0 0}
+.row .go{flex:none;padding:9px 13px}
+.vazio{text-align:center;color:var(--mut);padding:30px 0}
+footer{padding:6px 18px 34px;color:var(--mut);font-size:12px;line-height:1.55}
+.em{overflow:hidden}.em img{width:100%;height:100%;object-fit:cover}</style>
+</head>
+<body>
+<section class="hero"><div class="wrap">
+<div class="brand"><svg width="30" height="30" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#fb923c" stroke-width="2"/><circle cx="16" cy="16" r="8" stroke="#fb923c" stroke-width="2" opacity=".6"/><path d="M16 16L25 7" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="#fb923c"/></svg>Garimpo</div>
+<h1>Pare de procurar.<br><em>Garimpe</em> o que vender.</h1>
+<p>O radar de produtos da Shopee para afiliados: veja o que está quente, quanto custa e como divulgar.</p>
+<div class="stats"><span id="n1">50 produtos</span><span id="n2">8 categorias</span><span id="n3">Lista de exemplo</span></div>
+</div></section>
+<div class="bar"><div class="wrap">
+<div class="seg" id="s"><button data-p="mes" class="on">Mês</button><button data-p="semana">Semana</button><button data-p="dia">Hoje</button></div>
+<input id="q" placeholder="Buscar produto..." autocomplete="off">
+<div class="chips" id="f"></div>
+</div></div>
+<main class="wrap"><div class="pod" id="p"></div><div id="l"></div></main>
+<footer class="wrap">Garimpo é um site independente, sem vínculo oficial com a Shopee. Quando os dados vêm da Shopee, preço, comissão e vendas são os informados pela plataforma na última atualização. Na lista de exemplo, ordem, temperatura e faixa de preço são estimativas com base em relatórios públicos da Shopee (Mapa Shopee 2026, tendências de 2025, Black Friday e 11.11) e na época do ano. Confira o preço atual na Shopee. Não é um ranking em tempo real. Para divulgar, gere o seu link do produto no painel Shopee Afiliados.</footer>
+<script>
+var HOT="🔥 Mais quentes";
+var D=`✨|Pisca-pisca de Natal LED|Casa|3|R$ 10 a R$ 40|Procura sobe em novembro|poste antes do Natal
+🎄|Enfeites de Natal|Casa|3|R$ 10 a R$ 80|Itens natalinos em alta|vídeo de decoração rápida
+🎄|Árvore de Natal|Casa|3|R$ 40 a R$ 250|Itens natalinos em alta|mostre montada e iluminada
+🛏️|Jogo de lençol casal 400 fios|Casa|3|R$ 60 a R$ 150|Campeão de buscas em 2025|mostre a cama antes e depois
+💇|Escova secadora|Beleza|3|R$ 60 a R$ 150|Alta na Black Friday|resultado em poucos minutos
+🎧|Fone de ouvido bluetooth|Tecnologia|3|R$ 25 a R$ 120|Compra por impulso|teste de som no vídeo
+🔌|Carregador turbo e cabo USB-C|Tecnologia|3|R$ 15 a R$ 60|Item de reposição|mostre a velocidade
+💇|Kit capilar (máscara e óleo)|Beleza|3|R$ 20 a R$ 90|Cabelo em alta em novembro|antes e depois do fio
+🚁|Drone com câmera 4K|Tecnologia|3|R$ 150 a R$ 400|Mais vendido em vários estados|imagens aéreas em vídeo curto
+💡|Fita de LED para decoração|Casa|3|R$ 15 a R$ 60|Visual forte em vídeo|quarto no escuro com a luz
+⌚|Smartwatch|Tecnologia|3|R$ 60 a R$ 250|Presente de Black Friday|mostre as funções
+☀️|Protetor solar facial|Beleza|3|R$ 20 a R$ 70|Verão chegando|rotina de pele
+🧊|Copo térmico com tampa e canudo|Casa|3|R$ 30 a R$ 120|Ótimo para presente|várias cores no vídeo
+📱|Capinha de celular|Tecnologia|2|R$ 10 a R$ 40|Preço baixo e giro alto|vários modelos juntos
+🌸|Kit aromatizador e difusor elétrico|Casa|2|R$ 40 a R$ 100|Líder em Santa Catarina|mostre o cheiro na casa
+🐶|Tapete higiênico para cachorro|Pet|2|R$ 30 a R$ 90|Líder em São Paulo|foque em quem tem pet
+🪟|Cortina blackout|Casa|2|R$ 40 a R$ 120|Líder no Rio de Janeiro|quarto com e sem luz
+🧦|Kit 12 meias cano curto|Moda|2|R$ 25 a R$ 60|Líder no Paraná|fale do custo por par
+💻|Acessórios para computador|Tecnologia|2|R$ 15 a R$ 150|Líder no Distrito Federal|monte um setup
+📻|Rádio de carro MP3 bluetooth|Tecnologia|2|R$ 50 a R$ 120|Líder no Amapá|mostre a instalação
+🔊|Caixa de som bluetooth|Tecnologia|2|R$ 30 a R$ 150|Presente de Black Friday|teste de volume
+📲|Suporte de celular para carro|Tecnologia|2|R$ 15 a R$ 50|Preço baixo e uso diário|mostre no painel do carro
+🍳|Organizador de geladeira e potes|Casa|2|R$ 20 a R$ 90|Resolve problema do dia a dia|cozinha antes e depois
+🧹|Mop giratório|Casa|2|R$ 40 a R$ 130|Demonstração fácil|limpeza em tempo real
+🌀|Mini ventilador portátil|Casa|2|R$ 20 a R$ 70|Calor do fim do ano|mostre em uso
+💧|Umidificador de ar|Casa|2|R$ 30 a R$ 100|Conforto em casa|mostre o vapor
+💄|Kit de pincéis de maquiagem|Beleza|2|R$ 20 a R$ 80|Presente barato|maquiagem completa
+✨|Sérum facial vitamina C|Beleza|2|R$ 25 a R$ 90|Rotina de pele em alta|rotina em vídeo
+💅|Kit de unhas e lixas|Beleza|2|R$ 15 a R$ 60|Preço baixo|passo a passo
+👟|Tênis esportivo|Moda|2|R$ 70 a R$ 200|Alta procura em promoções|mostre no pé
+🩱|Legging fitness|Moda|2|R$ 25 a R$ 80|Moda fitness constante|prove no vídeo
+👕|Camiseta básica|Moda|2|R$ 20 a R$ 60|Preço baixo|monte looks
+👜|Bolsa feminina|Moda|2|R$ 30 a R$ 120|Ótima para presente|mostre por dentro
+💍|Brincos e bijuterias|Moda|2|R$ 8 a R$ 40|Preço de impulso|vários modelos
+🕶️|Óculos de sol|Moda|2|R$ 15 a R$ 70|Verão chegando|mostre no rosto
+🎒|Mochila casual|Moda|2|R$ 40 a R$ 130|Uso diário|mostre o espaço
+🛁|Toalha de banho|Casa|2|R$ 25 a R$ 90|Item de reposição|compare a maciez
+🛋️|Cobertor e manta|Casa|2|R$ 35 a R$ 120|Presente de fim de ano|sofá com a manta
+🕯️|Vela aromática|Casa|2|R$ 15 a R$ 60|Presente barato|ambiente aconchegante
+🐱|Cama e arranhador para pet|Pet|2|R$ 30 a R$ 120|Dono de pet compra sempre|mostre o pet usando
+🦴|Brinquedos e petiscos para pet|Pet|2|R$ 10 a R$ 50|Compra recorrente|reação do pet
+🏋️|Elásticos de treino|Esporte|2|R$ 15 a R$ 50|Preço baixo|treino em casa
+🧘|Tapete de yoga|Esporte|2|R$ 30 a R$ 90|Meta de ano novo|rotina de treino
+🚰|Garrafa de academia|Esporte|2|R$ 15 a R$ 50|Preço baixo|mostre o tamanho
+🎮|Teclado e mouse gamer|Tecnologia|2|R$ 40 a R$ 200|Presente para gamer|setup com luzes
+💡|Luminária de mesa|Casa|2|R$ 25 a R$ 100|Decoração e estudo|mostre a luz
+📷|Ring light com tripé|Tecnologia|2|R$ 35 a R$ 150|Criadores de conteúdo|antes e depois da luz
+🧸|Brinquedos infantis|Infantil|2|R$ 15 a R$ 100|Presente de Natal|criança brincando
+🪞|Espelho decorativo|Casa|1|R$ 30 a R$ 150|Decoração|ambiente antes e depois
+🔪|Kit de facas de cozinha|Casa|1|R$ 30 a R$ 120|Presente prático|corte no vídeo`.trim().split("\n").map(function(r){r=r.split("|");return {emoji:r[0],nome:r[1],cat:r[2],temp:+r[3],preco:r[4],porque:r[5],dica:r[6]}});
+var real=false,per="mes",atual="Top 10",q="",cats=[];
+function esc(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function brl(v){return "R$ "+Number(v).toFixed(2).replace(".",",")}
+function vend(p){var v=per==="dia"?p.vendasDia:per==="semana"?p.vendasSemana:p.vendasMes;return v==null?null:v}
+function chave(p){var v=vend(p);return v==null?(p.vendas||0):v}
+function meter(t){var s='<span class="mt">';for(var i=1;i<=3;i++)s+='<i class="'+(i<=t?"a":"")+'"></i>';return s+'</span>'}
+function url(p){return real?(p.link||p.linkAfiliado):"https://shopee.com.br/search?keyword="+encodeURIComponent(p.nome)}
+function precoTxt(p){if(!real)return p.preco;if(p.precoMin&&p.precoMax&&p.precoMin!==p.precoMax)return brl(p.precoMin)+" a "+brl(p.precoMax);return p.preco?brl(p.preco):""}
+function extra(p){if(!real)return meter(p.temp);return p.comissao?'<span class="pill">Comissão '+(p.comissao*100).toFixed(1).replace(".",",")+'%</span>':""}
+function why(p){if(!real)return p.porque;var v=vend(p);return v!=null?"+"+v+" vendas no período":(p.vendas||0)+" vendidos no total"}
+function tip(p){if(!real)return p.dica;return (p.loja?"Loja: "+esc(p.loja):"")+(p.nota?" · Nota "+p.nota.toFixed(1):"")}
+function icon(p){return (p.imagem&&/^https:/.test(p.imagem))?'<img loading="lazy" alt="" src="'+esc(p.imagem)+'">':(p.emoji||"🛍️")}
+function filtrar(){var o=[];D.forEach(function(p,i){var ok;
+  if(atual==="Top 10")ok=i<10;else if(atual===HOT)ok=real?i<20:p.temp>=3;else ok=atual==="Todos"||p.cat===atual;
+  if(ok&&q&&p.nome.toLowerCase().indexOf(q)<0)ok=false;if(ok)o.push([p,i+1])});return o}
+function lista(){
+  if(real)D.sort(function(a,b){return chave(b)-chave(a)});
+  var o=filtrar(),f=(o.length>=5&&!q)?o.slice(0,3):[],r=o.slice(f.length),h="",g="";
+  f.forEach(function(x){var p=x[0];
+    h+='<article class="fc"><div class="top"><div class="em">'+icon(p)+'</div><div><div class="rk">#'+x[1]+' NO RADAR</div><h3>'+esc(p.nome)+'</h3></div></div><div class="meta"><span class="pill">'+esc(p.cat)+'</span><span>'+esc(precoTxt(p))+'</span>'+extra(p)+'</div><p class="why"><b>'+(real?"Vendas":"Por que vende")+':</b> '+why(p)+'</p><p class="tip">'+(real?"":"<b>Como divulgar:</b> ")+tip(p)+'</p><a class="go" target="_blank" rel="noopener" href="'+esc(url(p))+'">Ver na Shopee</a></article>'});
+  r.forEach(function(x){var p=x[0];
+    g+='<article class="row"><div class="em">'+icon(p)+'</div><div class="in"><div class="rk">#'+x[1]+'</div><h3>'+esc(p.nome)+'</h3><div class="meta"><span class="pill">'+esc(p.cat)+'</span><span>'+esc(precoTxt(p))+'</span>'+extra(p)+'</div><div class="tip" style="margin:6px 0 0">'+why(p)+' · '+tip(p)+'</div></div><a class="go" target="_blank" rel="noopener" href="'+esc(url(p))+'">Ver</a></article>'});
+  document.getElementById("p").innerHTML=h;
+  document.getElementById("l").innerHTML=g||(h?"":'<div class="vazio">Nenhum produto encontrado.</div>');
+}
+function filtros(){var h="";
+  cats.forEach(function(c){h+='<button class="'+(c===atual?"on":"")+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'});
+  var f=document.getElementById("f");f.innerHTML=h;
+  f.querySelectorAll("button").forEach(function(b){b.onclick=function(){atual=b.getAttribute("data-c");filtros();lista()}})}
+function iniciar(upd){
+  cats=["Top 10","Todos",HOT].concat(D.map(function(p){return p.cat}).filter(function(c,i,a){return a.indexOf(c)===i}));
+  document.getElementById("n1").textContent=D.length+" produtos";
+  document.getElementById("n2").textContent=(cats.length-3)+" categorias";
+  document.getElementById("n3").textContent=upd?"Atualizado em "+upd:"Lista de exemplo";
+  var s=document.getElementById("s");
+  if(!real){s.style.display="none"}
+  s.querySelectorAll("button").forEach(function(b){b.onclick=function(){per=b.getAttribute("data-p");s.querySelectorAll("button").forEach(function(x){x.className=x===b?"on":""});lista()}});
+  filtros();lista();
+}
+document.getElementById("q").oninput=function(e){q=e.target.value.toLowerCase().trim();lista()};
+fetch("data/produtos.json?t="+Date.now()).then(function(r){return r.json()}).then(function(j){
+  if(j.produtos&&j.produtos.length){D=j.produtos;real=true;var d=new Date(j.atualizado);iniciar(isNaN(d)?"":d.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}))}else iniciar("")
+}).catch(function(){iniciar("")});
+</script>
+</body>
+</html>
